@@ -14,6 +14,11 @@
 		151554D12619A20A00197C57 /* Snatch_a_Million.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 151554CF2619A20A00197C57 /* Snatch_a_Million.xcdatamodeld */; };
 		151554D32619A20D00197C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 151554D22619A20D00197C57 /* Assets.xcassets */; };
 		151554D62619A20D00197C57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 151554D42619A20D00197C57 /* LaunchScreen.storyboard */; };
+		151554E12619AA2900197C57 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554E02619AA2900197C57 /* GameViewController.swift */; };
+		151554E42619AA3D00197C57 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554E32619AA3D00197C57 /* Question.swift */; };
+		151554E72619AA5500197C57 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554E62619AA5500197C57 /* GameSession.swift */; };
+		151554EA2619AA5F00197C57 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554E92619AA5F00197C57 /* Game.swift */; };
+		151554ED2619B6D800197C57 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554EC2619B6D800197C57 /* MainMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		151554D22619A20D00197C57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		151554D52619A20D00197C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		151554D72619A20D00197C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		151554E02619AA2900197C57 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		151554E32619AA3D00197C57 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		151554E62619AA5500197C57 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		151554E92619AA5F00197C57 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		151554EC2619B6D800197C57 /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,8 @@
 		151554C52619A20A00197C57 /* Snatch a Million */ = {
 			isa = PBXGroup;
 			children = (
+				151554DF2619AA0300197C57 /* Controllers */,
+				151554DE2619A9E800197C57 /* Game */,
 				151554C62619A20A00197C57 /* AppDelegate.swift */,
 				151554C82619A20A00197C57 /* SceneDelegate.swift */,
 				151554CA2619A20A00197C57 /* ViewController.swift */,
@@ -68,6 +80,25 @@
 				151554CF2619A20A00197C57 /* Snatch_a_Million.xcdatamodeld */,
 			);
 			path = "Snatch a Million";
+			sourceTree = "<group>";
+		};
+		151554DE2619A9E800197C57 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				151554E32619AA3D00197C57 /* Question.swift */,
+				151554E62619AA5500197C57 /* GameSession.swift */,
+				151554E92619AA5F00197C57 /* Game.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		151554DF2619AA0300197C57 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				151554E02619AA2900197C57 /* GameViewController.swift */,
+				151554EC2619B6D800197C57 /* MainMenuViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +171,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				151554ED2619B6D800197C57 /* MainMenuViewController.swift in Sources */,
+				151554E12619AA2900197C57 /* GameViewController.swift in Sources */,
 				151554CB2619A20A00197C57 /* ViewController.swift in Sources */,
 				151554D12619A20A00197C57 /* Snatch_a_Million.xcdatamodeld in Sources */,
+				151554E42619AA3D00197C57 /* Question.swift in Sources */,
+				151554E72619AA5500197C57 /* GameSession.swift in Sources */,
 				151554C72619A20A00197C57 /* AppDelegate.swift in Sources */,
 				151554C92619A20A00197C57 /* SceneDelegate.swift in Sources */,
+				151554EA2619AA5F00197C57 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

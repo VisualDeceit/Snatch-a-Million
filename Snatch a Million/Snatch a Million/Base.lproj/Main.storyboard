@@ -56,10 +56,10 @@
             </objects>
             <point key="canvasLocation" x="54" y="61"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="Kd7-EV-qh3">
             <objects>
-                <viewController id="Kw2-Vo-Tf1" customClass="ViewController" customModule="Snatch_a_Million" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Kw2-Vo-Tf1" customClass="GameViewController" customModule="Snatch_a_Million" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f8c-ly-0Hh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,35 +78,47 @@
                                                 <state key="normal" title="Вариант 1">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onAnswer0Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="5gd-36-pq2"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSr-SU-z3c">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSr-SU-z3c">
                                                 <rect key="frame" x="174" y="0.0" width="181" height="30"/>
                                                 <state key="normal" title="Вариант 2">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onAnswer1Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="Zys-NQ-rLA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-qd-0Dc">
                                         <rect key="frame" x="0.0" y="54" width="355" height="30"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c89-a4-LeU">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c89-a4-LeU">
                                                 <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                 <state key="normal" title="Вариант 3">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onAnswer2Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="3pi-SM-wmF"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ9-bo-mNq">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ9-bo-mNq">
                                                 <rect key="frame" x="180" y="0.0" width="175" height="30"/>
                                                 <state key="normal" title="Вариант 4">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onAnswer3Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="D8y-xT-sqM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-lW-Tgl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-lW-Tgl">
                                 <rect key="frame" x="10" y="200" width="355" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="Cs8-9V-Ny9"/>
@@ -131,6 +143,13 @@
                             <constraint firstItem="c3A-lW-Tgl" firstAttribute="top" secondItem="uVO-YH-jNC" secondAttribute="top" constant="200" id="uwD-td-NcK"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="answer0Button" destination="iB5-Ok-z63" id="R3r-Qt-agP"/>
+                        <outlet property="answer1Button" destination="SSr-SU-z3c" id="sZT-cl-hBi"/>
+                        <outlet property="answer2Button" destination="c89-a4-LeU" id="aRD-ue-Hrv"/>
+                        <outlet property="answer3Button" destination="MZ9-bo-mNq" id="fds-06-j9u"/>
+                        <outlet property="questionLebel" destination="c3A-lW-Tgl" id="cOo-bm-s1l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXS-hE-EYa" sceneMemberID="firstResponder"/>
             </objects>
