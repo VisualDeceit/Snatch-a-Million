@@ -41,14 +41,21 @@ class GameSession {
 
 
 extension GameSession: GameViewControllerProtocol {
+    
     func didSelectAnswer(_ controller: GameViewController, _ sender: UIButton) {
-        let userAnswer = sender.tag
-        if userAnswer == question.correctAnswer {
+        //верный ответ
+        if sender.tag == question.correctAnswer {
             correctAnswers += 1
         }
+                
         if currentQuestionIndex < allQuestions.count - 1 {
             currentQuestionIndex += 1
         } else {
+            //конец игры
+            Game.shared.addResult(Result(user: Game.shared.user,
+                                         date: Date(),
+                                         progress: currentQuestionIndex + 1,
+                                         correct: correctAnswers))
             Game.shared.clearSession()
             controller.dismiss(animated: true)
         }

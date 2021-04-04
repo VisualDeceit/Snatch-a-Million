@@ -7,10 +7,23 @@
 
 import Foundation
 
+struct Result: Codable {
+    let user: String
+    let date: Date
+    let progress: Int
+    let correct: Int
+}
+
 class Game {
     static var shared = Game()
     
     private var gameSession: GameSession?
+    
+    private(set) var results: [Result] = []
+    
+    var user: String = "None"
+    
+    let resultsCareTaker = ResulsCareTaker()
     
     func setSession(session: GameSession){
         gameSession = session
@@ -24,5 +37,12 @@ class Game {
         gameSession = nil
     }
     
-    private init() {}
+    func addResult(_ result: Result) {
+        self.results.append(result)
+        resultsCareTaker.save(results)
+    }
+    
+    private init() {
+        self.results = resultsCareTaker.load()
+    }
 }
