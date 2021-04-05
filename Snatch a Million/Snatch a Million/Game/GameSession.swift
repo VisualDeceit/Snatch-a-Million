@@ -56,7 +56,7 @@ extension GameSession: GameViewControllerProtocol {
                                          date: Date(),
                                          progress: currentQuestionIndex + 1,
                                          correct: correctAnswers))
-            Game.shared.clearSession()
+            Game.shared.gameSession = nil
             controller.dismiss(animated: true)
         }
     }

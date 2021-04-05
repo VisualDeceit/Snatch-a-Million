@@ -17,25 +17,13 @@ struct Result: Codable {
 class Game {
     static var shared = Game()
     
-    private var gameSession: GameSession?
+    var gameSession: GameSession?
     
     private(set) var results: [Result] = []
     
     var user: String = "None"
     
     let resultsCareTaker = ResulsCareTaker()
-    
-    func setSession(session: GameSession){
-        gameSession = session
-    }
-    
-    func getQuestion() -> Question? {
-        return gameSession?.question
-    }
-    
-    func clearSession() {
-        gameSession = nil
-    }
     
     func addResult(_ result: Result) {
         self.results.append(result)

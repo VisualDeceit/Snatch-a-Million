@@ -23,22 +23,22 @@ class GameViewController: UIViewController {
     
     @IBAction func onAnswer0Pressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.getQuestion())
+        showNextQuestion(Game.shared.gameSession?.question)
     }
     
     @IBAction func onAnswer1Pressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.getQuestion())
+        showNextQuestion(Game.shared.gameSession?.question)
     }
     
     @IBAction func onAnswer2Pressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.getQuestion())
+        showNextQuestion(Game.shared.gameSession?.question)
     }
     
     @IBAction func onAnswer3Pressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.getQuestion())
+        showNextQuestion(Game.shared.gameSession?.question)
     }
     
     override func viewDidLoad() {
@@ -52,9 +52,9 @@ class GameViewController: UIViewController {
         
         let gameSession = GameSession()
         self.delegate = gameSession
-        Game.shared.setSession(session: gameSession)
+        Game.shared.gameSession = gameSession
 
-        showNextQuestion(Game.shared.getQuestion())
+        showNextQuestion(Game.shared.gameSession?.question)
     }
     
     func showNextQuestion(_ question: Question?) {
