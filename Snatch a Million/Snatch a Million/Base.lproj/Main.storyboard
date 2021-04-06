@@ -37,7 +37,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nLN-bU-B3N" kind="modal" identifier="showResultsSegue" modalPresentationStyle="fullScreen" id="Tmo-aY-G5I"/>
+                                    <segue destination="nLN-bU-B3N" kind="presentation" identifier="showResultsSegue" modalPresentationStyle="fullScreen" id="Tmo-aY-G5I"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +85,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onAnswer0Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="5gd-36-pq2"/>
+                                                    <action selector="onAnswerButtonPressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="nsw-TH-muA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSr-SU-z3c">
@@ -94,7 +94,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onAnswer1Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="Zys-NQ-rLA"/>
+                                                    <action selector="onAnswerButtonPressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="Ecu-C8-ogr"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -108,7 +108,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onAnswer2Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="3pi-SM-wmF"/>
+                                                    <action selector="onAnswerButtonPressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="thT-0X-CpD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZ9-bo-mNq">
@@ -117,7 +117,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onAnswer3Pressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="D8y-xT-sqM"/>
+                                                    <action selector="onAnswerButtonPressed:" destination="Kw2-Vo-Tf1" eventType="touchUpInside" id="oHi-eu-I5s"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -149,6 +149,7 @@
                             <constraint firstItem="c3A-lW-Tgl" firstAttribute="top" secondItem="uVO-YH-jNC" secondAttribute="top" constant="200" id="uwD-td-NcK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="xhp-vw-oxS"/>
                     <connections>
                         <outlet property="answer0Button" destination="iB5-Ok-z63" id="R3r-Qt-agP"/>
                         <outlet property="answer1Button" destination="SSr-SU-z3c" id="sZT-cl-hBi"/>

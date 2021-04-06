@@ -40,24 +40,31 @@ class GameSession {
 
 
 
-extension GameSession: GameViewControllerProtocol {
+extension GameSession: GameViewControllerDelegate {
     
     func didSelectAnswer(_ controller: GameViewController, _ sender: UIButton) {
-        //верный ответ
         if sender.tag == question.correctAnswer {
+            //верный ответ
             correctAnswers += 1
+        } else {
+            //проиграли
+            endGame(controller)
         }
                 
         if currentQuestionIndex < allQuestions.count - 1 {
             currentQuestionIndex += 1
         } else {
             //конец игры
-            Game.shared.addResult(Result(user: Game.shared.user,
-                                         date: Date(),
-                                         progress: currentQuestionIndex + 1,
-                                         correct: correctAnswers))
-            Game.shared.gameSession = nil
-            controller.dismiss(animated: true)
+            endGame(controller)
         }
+    }
+    
+    func endGame(_ controller: GameViewController) {
+        let progress = Double(correctAnswers) / Double(allQuestions.count) * 100.0
+        Game.shared.addResult(Result(user: Game.shared.user, progress: progress))
+        Game.shared.gameSession = nil
+        controller.dismiss(animated: true)
+        
+        
     }
 }

@@ -9,9 +9,7 @@ import Foundation
 
 struct Result: Codable {
     let user: String
-    let date: Date
-    let progress: Int
-    let correct: Int
+    let progress: Double
 }
 
 class Game {
@@ -23,7 +21,7 @@ class Game {
     
     var user: String = "None"
     
-    let resultsCareTaker = ResulsCareTaker()
+    let resultsCareTaker = ResultsCareTaker()
     
     func addResult(_ result: Result) {
         self.results.append(result)
