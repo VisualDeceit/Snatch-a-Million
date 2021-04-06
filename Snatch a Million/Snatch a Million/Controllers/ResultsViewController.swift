@@ -16,10 +16,10 @@ class ResultsViewController: UIViewController {
         
         self.tableView.dataSource = self
     }
-    
 }
 
 extension ResultsViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         Game.shared.results.count
     }
@@ -27,13 +27,8 @@ extension ResultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath)
         let result = Game.shared.results[indexPath.row]
-        //let date = DateFormatter.localizedString(from: result.date, dateStyle: .short, timeStyle: .short)
         cell.textLabel?.text = "\(result.user)"
-        cell.detailTextLabel?.text = "\(result.correct)/\(result.progress)"
-
+        cell.detailTextLabel?.text = String(format: "%.0f%%", result.progress)
         return cell
-
     }
-    
-    
 }

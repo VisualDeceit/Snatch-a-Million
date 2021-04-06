@@ -21,5 +21,4 @@ class MainMenuViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    
 }

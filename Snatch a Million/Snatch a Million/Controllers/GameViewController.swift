@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol GameViewControllerProtocol: AnyObject {
+protocol GameViewControllerDelegate: AnyObject {
     func didSelectAnswer(_ controller: GameViewController, _ sender: UIButton)
 }
 
 class GameViewController: UIViewController {
     
-    weak var delegate: GameViewControllerProtocol?
+    weak var delegate: GameViewControllerDelegate?
     
     @IBOutlet weak var answer0Button: UIButton!
     @IBOutlet weak var answer1Button: UIButton!
@@ -21,22 +21,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var questionLebel: UILabel!
     
-    @IBAction func onAnswer0Pressed(_ sender: UIButton) {
-        delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.gameSession?.question)
-    }
-    
-    @IBAction func onAnswer1Pressed(_ sender: UIButton) {
-        delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.gameSession?.question)
-    }
-    
-    @IBAction func onAnswer2Pressed(_ sender: UIButton) {
-        delegate?.didSelectAnswer(self, sender)
-        showNextQuestion(Game.shared.gameSession?.question)
-    }
-    
-    @IBAction func onAnswer3Pressed(_ sender: UIButton) {
+    @IBAction func onAnswerButtonPressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
         showNextQuestion(Game.shared.gameSession?.question)
     }
@@ -49,25 +34,18 @@ class GameViewController: UIViewController {
     
     /// Начальная инициализация игры
     func beginGame() {
-        
         let gameSession = GameSession()
         self.delegate = gameSession
         Game.shared.gameSession = gameSession
-
         showNextQuestion(Game.shared.gameSession?.question)
     }
     
-    func showNextQuestion(_ question: Question?) {
-        guard let question =  question else {
-            return
-        }
+    func showNextQuestion( _ question: Question?) {
+        guard let question =  question else { return }
         questionLebel.text = question.text
         answer0Button.setTitle(question.answers[0], for: .normal)
         answer1Button.setTitle(question.answers[1], for: .normal)
         answer2Button.setTitle(question.answers[2], for: .normal)
         answer3Button.setTitle(question.answers[3], for: .normal)
-
     }
-    
-    
 }

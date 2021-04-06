@@ -1,5 +1,5 @@
 //
-//  ResulsCareTaker.swift
+//  ResultsCareTaker.swift
 //  Snatch a Million
 //
 //  Created by Alexander Fomin on 04.04.2021.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct UserDefaultsKeys {
+enum UserDefaultsKeys {
     static let results = "results"
 }
 
-class ResulsCareTaker {
+class ResultsCareTaker {
     
     func save(_ records: [Result]) {
         do {
