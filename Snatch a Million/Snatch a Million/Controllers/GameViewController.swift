@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answer2Button: UIButton!
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var questionLebel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     
     @IBAction func onAnswerButtonPressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
