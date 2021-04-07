@@ -314,6 +314,7 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-eP-lPB">
                                 <rect key="frame" x="16" y="89" width="343" height="32"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="pe0-YY-Sfp"/>
                                 </constraints>
@@ -322,7 +323,7 @@
                                     <segment title="Случайный"/>
                                 </segments>
                                 <connections>
-                                    <action selector="onQuestionsSequenceModeChanged:" destination="XIH-X6-PxW" eventType="valueChanged" id="2Xs-Qf-PpI"/>
+                                    <action selector="onQuestionsSequenceModeChanged:" destination="XIH-X6-PxW" eventType="valueChanged" id="4Hr-Vb-dI1"/>
                                 </connections>
                             </segmentedControl>
                         </subviews>
@@ -357,6 +358,9 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

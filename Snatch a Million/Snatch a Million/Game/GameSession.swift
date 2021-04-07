@@ -29,6 +29,8 @@ class GameSession {
         return q
     }()
     
+    var questionSequenceStrategy: QuestionSequenceStrategy
+    
     private var currentQuestionIndex: Int = 0
     
     var question: Question {
@@ -36,6 +38,16 @@ class GameSession {
     }
     
     private var correctAnswers = 0
+    
+    init() {
+        switch Game.shared.questionSequenceMode {
+        case .serial:
+            questionSequenceStrategy =  SerialQuestionSequenceStrategy(questionsCount: allQuestions.count)
+        case .random:
+            questionSequenceStrategy =  RandomQuestionSequenceStrategy(questionsCount: allQuestions.count)
+            currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
+        }
+    }
 }
 
 
@@ -49,14 +61,16 @@ extension GameSession: GameViewControllerDelegate {
         } else {
             //проиграли
             endGame(controller)
+            return
         }
-                
-        if currentQuestionIndex < allQuestions.count - 1 {
-            currentQuestionIndex += 1
-        } else {
-            //конец игры
+        
+        if correctAnswers == allQuestions.count {
+            //конец  игры
             endGame(controller)
+            return
         }
+        
+        currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
     }
     
     func endGame(_ controller: GameViewController) {
@@ -64,7 +78,5 @@ extension GameSession: GameViewControllerDelegate {
         Game.shared.addResult(Result(user: Game.shared.user, progress: progress))
         Game.shared.gameSession = nil
         controller.dismiss(animated: true)
-        
-        
     }
 }

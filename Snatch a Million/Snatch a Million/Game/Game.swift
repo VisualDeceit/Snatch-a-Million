@@ -21,6 +21,8 @@ class Game {
     
     var user: String = "None"
     
+    var questionSequenceMode: QuestionSequenceMode = .serial
+    
     let resultsCareTaker = ResultsCareTaker()
     
     func addResult(_ result: Result) {

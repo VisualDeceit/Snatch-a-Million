@@ -7,9 +7,14 @@
 
 import UIKit
 
+enum QuestionSequenceMode: Int {
+    case serial, random
+}
+
 class SettingsViewController: UIViewController {
- 
+    
     @IBAction func onQuestionsSequenceModeChanged(_ sender: UISegmentedControl) {
-        print(sender.selectedSegmentIndex)
-    }
+        Game.shared.questionSequenceMode = QuestionSequenceMode(rawValue: sender.selectedSegmentIndex) ?? .serial
+}
+ 
 }
