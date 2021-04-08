@@ -9,25 +9,23 @@ import UIKit
 
 class GameSession {
     
-   private let allQuestions: [Question] = {
-        var q = [Question]()
-        q.append(Question(text: "Что в Российской империи было вещевым эквивалентом денег?",
-                          answers: ["Шкуры пушных зверей", "Крупный рогатый скот", "Табак", "Женские серьги"],
-                          correctAnswer: 0))
-        q.append(Question(text: "У индейцев из немногочисленного североамериканского племени квакиутл есть традиция: беря деньги в долг, они оставляют в залог…",
-                          answers: ["Душу", "Имя", "Скальп тещи", "Амулет"],
-                          correctAnswer: 1))
-        q.append(Question(text: "Российский мультфильм, удостоенный «Оскара», — это…",
-                          answers: ["«Простоквашино»","«Винни-Пух»","«Старик и море»","«Ну, погоди!»"],
-                          correctAnswer: 2))
-        q.append(Question(text: "Кто из знаменитых художников за жизнь продал всего одну картину?",
-                          answers: ["Винсент Ван Гог","Пьер Огюст Ренуар","Поль Гоген","Клод Моне"],
-                          correctAnswer: 0))
-        q.append(Question(text: "Туристы, приезжающие на Майорку, обязаны заплатить налог…",
-                          answers: ["На плавки","На пальмы","На солнце","На жену"],
-                          correctAnswer: 2))
-        return q
-    }()
+   private let allQuestions = [
+    Question(text: "Что в Российской империи было вещевым эквивалентом денег?",
+             answers: ["Шкуры пушных зверей", "Крупный рогатый скот", "Табак", "Женские серьги"],
+             correctAnswer: 0),
+    Question(text: "У индейцев из немногочисленного североамериканского племени квакиутл есть традиция: беря деньги в долг, они оставляют в залог…",
+             answers: ["Душу", "Имя", "Скальп тещи", "Амулет"],
+             correctAnswer: 1),
+    Question(text: "Российский мультфильм, удостоенный «Оскара», — это…",
+             answers: ["«Простоквашино»","«Винни-Пух»","«Старик и море»","«Ну, погоди!»"],
+             correctAnswer: 2),
+    Question(text: "Кто из знаменитых художников за жизнь продал всего одну картину?",
+             answers: ["Винсент Ван Гог","Пьер Огюст Ренуар","Поль Гоген","Клод Моне"],
+             correctAnswer: 0),
+    Question(text: "Туристы, приезжающие на Майорку, обязаны заплатить налог…",
+             answers: ["На плавки","На пальмы","На солнце","На жену"],
+             correctAnswer: 2),
+ ]
     
     var questionSequenceStrategy: QuestionSequenceStrategy
     
@@ -37,7 +35,15 @@ class GameSession {
         return allQuestions[currentQuestionIndex]
     }
     
-    private var correctAnswers = 0
+    var progress: Double = 0
+    
+    @Observable private(set) var correctAnswers = 0 {
+        willSet {
+            //если делать через вычисляемое св-во, то падает с ошибкой:
+            //'Simultaneous accesses to <address> , but modification requires exclusive access'
+            progress = Double(newValue) / Double(allQuestions.count) * 100.0
+        }
+    }
     
     init() {
         switch Game.shared.questionSequenceMode {
@@ -73,7 +79,6 @@ extension GameSession: GameViewControllerDelegate {
     }
     
     func endGame(_ controller: GameViewController) {
-        let progress = Double(correctAnswers) / Double(allQuestions.count) * 100.0
         Game.shared.addResult(Result(user: Game.shared.user, progress: progress))
         Game.shared.gameSession = nil
         controller.dismiss(animated: true)

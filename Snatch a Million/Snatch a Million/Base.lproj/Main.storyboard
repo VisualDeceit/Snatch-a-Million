@@ -150,7 +150,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-i4-ENg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос №1: Решено 0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Hx-i4-ENg">
                                 <rect key="frame" x="16" y="16" width="343" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9d2-go-xXC"/>
@@ -184,6 +184,7 @@
                         <outlet property="answer1Button" destination="SSr-SU-z3c" id="sZT-cl-hBi"/>
                         <outlet property="answer2Button" destination="c89-a4-LeU" id="aRD-ue-Hrv"/>
                         <outlet property="answer3Button" destination="MZ9-bo-mNq" id="fds-06-j9u"/>
+                        <outlet property="progressLabel" destination="9Hx-i4-ENg" id="spY-ij-c3l"/>
                         <outlet property="questionLebel" destination="c3A-lW-Tgl" id="cOo-bm-s1l"/>
                     </connections>
                 </viewController>

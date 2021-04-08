@@ -38,6 +38,10 @@ class GameViewController: UIViewController {
         self.delegate = gameSession
         Game.shared.gameSession = gameSession
         showNextQuestion(Game.shared.gameSession?.question)
+        
+        gameSession.$correctAnswers.addObserver(self) { [weak self] (value, _) in
+            self?.progressLabel.text = "Вопрос №\(value + 1) Решено: \(String(format: "%.0f%%", gameSession.progress))"
+        }
     }
     
     func showNextQuestion( _ question: Question?) {
