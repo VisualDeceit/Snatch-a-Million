@@ -12,29 +12,24 @@ protocol QuestionSequenceStrategy {
 }
 
 struct SerialQuestionSequenceStrategy: QuestionSequenceStrategy {
-    var questionsCount: Int
     var questionIndex = 0
     
     mutating func getQuestionIndex() -> Int {
-        if questionIndex < questionsCount - 1 {
-            questionIndex += 1
-        }
+        questionIndex += 1
         return questionIndex
     }
 }
 
 struct RandomQuestionSequenceStrategy: QuestionSequenceStrategy {
-    var questionsCount: Int
-    var questionsAsked: [Int] = []
+    var questionsIndexes: [Int]
+    
+    init(questionsCount: Int) {
+        self.questionsIndexes = Array(0..<questionsCount).shuffled()
+    }
     
     mutating func getQuestionIndex() -> Int {
-        if questionsAsked.isEmpty {
-            questionsAsked = Array(0..<questionsCount).shuffled()
-        }
-        
-        let questionIndex = questionsAsked.first ?? 0
-        questionsAsked.removeFirst()
-
+        let questionIndex = questionsIndexes.first ?? 0
+        questionsIndexes.removeFirst()
         return questionIndex
     }
 }

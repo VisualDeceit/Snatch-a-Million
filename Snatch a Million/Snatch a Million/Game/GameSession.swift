@@ -42,7 +42,7 @@ class GameSession {
     init() {
         switch Game.shared.questionSequenceMode {
         case .serial:
-            questionSequenceStrategy =  SerialQuestionSequenceStrategy(questionsCount: allQuestions.count)
+            questionSequenceStrategy =  SerialQuestionSequenceStrategy()
         case .random:
             questionSequenceStrategy =  RandomQuestionSequenceStrategy(questionsCount: allQuestions.count)
             currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
@@ -69,7 +69,6 @@ extension GameSession: GameViewControllerDelegate {
             endGame(controller)
             return
         }
-        
         currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
     }
     
