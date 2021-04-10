@@ -32,7 +32,7 @@ class Game {
     
     func addQuestions(_ questions: [Question]) {
         self.customQuestions.append(contentsOf: questions)
-        questionsCareTaker.save(questions)
+        questionsCareTaker.save(customQuestions)
     }
     
     private init() {

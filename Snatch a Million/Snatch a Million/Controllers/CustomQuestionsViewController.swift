@@ -29,7 +29,7 @@ class CustomQuestionsViewController: UIViewController {
     
     @IBAction func onAddAllQuestionsPressed(_ sender: UIButton) {
         Game.shared.addQuestions(questionsBuilder.getQuestions())
-        performSegue(withIdentifier: "backToMainMenuSegue", sender: nil)
+        dismiss(animated: true)
     }
     
 //MARK:- Lifecycle
