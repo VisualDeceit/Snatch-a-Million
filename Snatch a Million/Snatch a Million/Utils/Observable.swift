@@ -46,17 +46,6 @@ public struct Observable<Type> {
         }
     }
     
-    /// Позволяет вызвать методы обзервера через символ`$`
-    /// ```
-    /// @Observer var value: Int = 0
-    ///
-    /// $value.addObserver(self) { value, options in
-    ///     print("New value: \(value)")
-    /// }
-    ///
-    /// value = 1 // New value: 1
-    /// value = 23 // New value: 23
-    ///```
     public let projectedValue: ObserverHandler
 
     // MARK: - Object Lifecycle
@@ -128,5 +117,4 @@ public struct Observable<Type> {
             self.closure = closure
         }
     }
-
 }
