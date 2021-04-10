@@ -37,6 +37,7 @@ class GameViewController: UIViewController {
         let gameSession = GameSession()
         self.delegate = gameSession
         Game.shared.gameSession = gameSession
+        
         showNextQuestion(Game.shared.gameSession?.question)
         
         gameSession.$correctAnswers.addObserver(self) { [weak self] (value, _) in

@@ -16,21 +16,27 @@ class Game {
     static var shared = Game()
     
     var gameSession: GameSession?
-    
-    private(set) var results: [Result] = []
-    
     var user: String = "None"
-    
     var questionSequenceMode: QuestionSequenceMode = .serial
     
+    private(set) var results: [Result] = []
+    private(set) var customQuestions: [Question] = []
+    
     let resultsCareTaker = ResultsCareTaker()
+    let questionsCareTaker = QuestionsCareTaker()
     
     func addResult(_ result: Result) {
         self.results.append(result)
         resultsCareTaker.save(results)
     }
     
+    func addQuestions(_ questions: [Question]) {
+        self.customQuestions.append(contentsOf: questions)
+        questionsCareTaker.save(questions)
+    }
+    
     private init() {
         self.results = resultsCareTaker.load()
+        self.customQuestions = questionsCareTaker.load()
     }
 }

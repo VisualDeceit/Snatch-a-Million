@@ -9,7 +9,7 @@ import UIKit
 
 class GameSession {
     
-   private let allQuestions = [
+    private var allQuestions = [
     Question(text: "Что в Российской империи было вещевым эквивалентом денег?",
              answers: ["Шкуры пушных зверей", "Крупный рогатый скот", "Табак", "Женские серьги"],
              correctAnswer: 0),
@@ -47,7 +47,9 @@ class GameSession {
         }
     }
     
-    init() {
+    init(customQestions questions: [Question] = []) {
+        self.allQuestions.append(contentsOf: Game.shared.customQuestions)
+        
         switch Game.shared.questionSequenceMode {
         case .serial:
             questionSequenceStrategy =  SerialQuestionSequenceStrategy()

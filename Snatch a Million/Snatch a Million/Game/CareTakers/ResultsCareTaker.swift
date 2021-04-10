@@ -9,6 +9,7 @@ import Foundation
 
 enum UserDefaultsKeys {
     static let results = "results"
+    static let questions = "questions"
 }
 
 class ResultsCareTaker {

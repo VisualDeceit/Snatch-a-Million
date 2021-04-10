@@ -13,15 +13,21 @@ class CustomQuestionsViewController: UIViewController {
     var questionsBuilder = QuestionsBuilder()
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addQuestionBarButton: UIBarButtonItem!
     
     @IBAction func onAddNewQuestionPreessed(_ sender: UIButton) {
-        customQuestions.insert(questionsBuilder.addQuestion(), at: customQuestions.count - 1)
+        questionsBuilder.addQuestion()
+        customQuestions = questionsBuilder.getQuestions() + [questionsBuilder.reset()]
+        
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: customQuestions.count - 1, section: 0), at: .bottom, animated: true)
+        
+        addQuestionBarButton.isEnabled = true
     }
     
-    @IBAction func onSaveAllQuestionPreessed(_ sender: UIButton) {
-        print(questionsBuilder.getQuestions())
+    @IBAction func onAddAllQuestionsPressed(_ sender: UIButton) {
+        Game.shared.addQuestions(questionsBuilder.getQuestions())
+        performSegue(withIdentifier: "backToMainMenuSegue", sender: nil)
     }
     
 //MARK:- Lifecycle
@@ -29,13 +35,15 @@ class CustomQuestionsViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.dataSource = self
-        // первый пустой вопрос
+        
         customQuestions = [questionsBuilder.reset()]
+        questionsBuilder.addQuestion()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+//MARK:- NotificationCenter
     @objc func keyboardWillShow(_ notification:Notification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardSize.height, right: 0)

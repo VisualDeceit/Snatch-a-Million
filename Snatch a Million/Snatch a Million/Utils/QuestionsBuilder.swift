@@ -9,18 +9,25 @@ import Foundation
 
 class QuestionsBuilder {
     
-    private var currentQuestion = Question(text: "", answers: ["","","",""], correctAnswer: 0)
+    private var currentQuestion: Question?
     private var questions: [Question] = []
    
-    func addQuestion() -> Question {
-        self.questions.append(currentQuestion)
-        let result = currentQuestion
+    func addQuestion() {
+        guard let question = currentQuestion,
+              !question.text.isEmpty,
+              !question.answers[0].isEmpty,
+              !question.answers[1].isEmpty,
+              !question.answers[2].isEmpty,
+              !question.answers[3].isEmpty else {
+            currentQuestion = reset()
+            return
+        }
+        self.questions.append(question)
         currentQuestion = reset()
-        return result
     }
     
     func reset() ->  Question {
-        Question(text: "", answers: ["","","",""], correctAnswer: 0)
+        return Question(text: "", answers: ["","","",""], correctAnswer: 0)
     }
     
     func getQuestions() -> [Question] {
@@ -28,14 +35,14 @@ class QuestionsBuilder {
     }
     
     func setText(_ text: String) {
-        self.currentQuestion.text = text
+        self.currentQuestion?.text = text
     }
     
     func setAnswer(_ index: Int, _ answer: String) {
-        self.currentQuestion.answers[index] = answer
+        self.currentQuestion?.answers[index] = answer
     }
     
     func setCorrectAnswer(_ index: Int) {
-        self.currentQuestion.correctAnswer = index
+        self.currentQuestion?.correctAnswer = index
     }
 }

@@ -381,16 +381,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="WJS-1Q-mJb">
-                                        <barButtonItem key="leftBarButtonItem" title="Сохранить" id="F5R-UI-USl">
+                                        <barButtonItem key="leftBarButtonItem" enabled="NO" title="Добавить" id="F5R-UI-USl">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <action selector="onSaveAllQuestionPreessed:" destination="pLT-AQ-BJH" id="lBK-Cc-9MT"/>
+                                                <action selector="onAddAllQuestionsPressed:" destination="pLT-AQ-BJH" id="ceb-88-d2t"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Закрыть" id="hCE-uN-77x">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="AFB-EP-zIt" kind="unwind" unwindAction="unwindToMainMenu:" id="fjk-Mb-jjW"/>
+                                                <segue destination="AFB-EP-zIt" kind="unwind" identifier="backToMainMenuSegue" unwindAction="unwindToMainMenu:" id="fjk-Mb-jjW"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -542,6 +542,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2gB-N0-P3W"/>
                     <connections>
+                        <outlet property="addQuestionBarButton" destination="F5R-UI-USl" id="zcE-r1-ccs"/>
                         <outlet property="tableView" destination="t8P-Xj-nGb" id="Tjg-eD-Zkq"/>
                     </connections>
                 </viewController>
