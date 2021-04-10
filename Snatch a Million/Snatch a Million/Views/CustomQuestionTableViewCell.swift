@@ -9,17 +9,8 @@ import UIKit
 
 class CustomQuestionTableViewCell: UITableViewCell {
 
-    var questionsBuilder: QuestionsBuilder!
-    
-    var question: Question? {
-        didSet {
-            questionTextView.text = question?.text
-            answer1TextField.text = question?.answers[0]
-            answer2TextField.text = question?.answers[1]
-            answer3TextField.text = question?.answers[2]
-            answer4TextField.text = question?.answers[3]
-        }
-    }
+    private var questionsBuilder: QuestionsBuilder!
+    private var groupSwitches = [UISwitch]()
     
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var answer1TextField: UITextField!
@@ -31,6 +22,15 @@ class CustomQuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var answer3IsCorrectSwitch: UISwitch!
     @IBOutlet weak var answer4IsCorrectSwitch: UISwitch!
     
+    @IBAction func didTougleSwith(_ sender: UISwitch) {
+        questionsBuilder.setCorrectAnswer(sender.tag)
+        groupSwitches.forEach {
+            if $0.tag != sender.tag {
+                $0.isOn = false
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -39,6 +39,22 @@ class CustomQuestionTableViewCell: UITableViewCell {
         answer2TextField.delegate = self
         answer3TextField.delegate = self
         answer4TextField.delegate = self
+        
+        groupSwitches = [answer1IsCorrectSwitch] + [answer2IsCorrectSwitch] + [answer3IsCorrectSwitch] + [answer4IsCorrectSwitch]
+    }
+    
+    func populate(question: Question, builder: QuestionsBuilder) {
+        questionsBuilder = builder
+        
+        questionTextView.text = question.text
+        answer1TextField.text = question.answers[0]
+        answer2TextField.text = question.answers[1]
+        answer3TextField.text = question.answers[2]
+        answer4TextField.text = question.answers[3]
+        
+        groupSwitches.forEach {
+            $0.isOn = $0.tag ==  question.correctAnswer ? true : false
+        }
     }
 }
 

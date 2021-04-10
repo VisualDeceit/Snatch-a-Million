@@ -22,7 +22,9 @@ class CustomQuestionsViewController: UIViewController {
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: customQuestions.count - 1, section: 0), at: .bottom, animated: true)
         
-        addQuestionBarButton.isEnabled = true
+        if customQuestions.count > 1 {
+            addQuestionBarButton.isEnabled = true
+        }
     }
     
     @IBAction func onAddAllQuestionsPressed(_ sender: UIButton) {
@@ -67,8 +69,7 @@ extension CustomQuestionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as? CustomQuestionTableViewCell
         else { return CustomQuestionTableViewCell()}
-        cell.questionsBuilder = self.questionsBuilder
-        cell.question = customQuestions[indexPath.row]
+        cell.populate(question: self.customQuestions[indexPath.row], builder: questionsBuilder)
         return cell
     }
 }

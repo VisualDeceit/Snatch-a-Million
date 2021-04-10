@@ -430,6 +430,9 @@
                                                                 </textField>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qwc-2Y-PTV">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
+                                                                    <connections>
+                                                                        <action selector="didTougleSwith:" destination="vPJ-lh-Ntm" eventType="valueChanged" id="r3J-Mu-Jjk"/>
+                                                                    </connections>
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
@@ -441,8 +444,11 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-XT-E7B">
+                                                                <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-XT-E7B">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
+                                                                    <connections>
+                                                                        <action selector="didTougleSwith:" destination="vPJ-lh-Ntm" eventType="valueChanged" id="TwL-gu-D9b"/>
+                                                                    </connections>
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
@@ -454,8 +460,11 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zcg-oR-6WI">
+                                                                <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zcg-oR-6WI">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
+                                                                    <connections>
+                                                                        <action selector="didTougleSwith:" destination="vPJ-lh-Ntm" eventType="valueChanged" id="Uia-XC-ubi"/>
+                                                                    </connections>
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
@@ -467,8 +476,11 @@
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-JG-ESR">
+                                                                <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-JG-ESR">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
+                                                                    <connections>
+                                                                        <action selector="didTougleSwith:" destination="vPJ-lh-Ntm" eventType="valueChanged" id="rkV-1Y-fTc"/>
+                                                                    </connections>
                                                                 </switch>
                                                             </subviews>
                                                         </stackView>
