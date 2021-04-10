@@ -24,6 +24,9 @@
 		151554FE261CDBBA00197C57 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151554FD261CDBBA00197C57 /* SettingsViewController.swift */; };
 		154399DE261E32AC00ACA661 /* QuestionSequenceStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154399DD261E32AC00ACA661 /* QuestionSequenceStrategy.swift */; };
 		154399E3261F56D100ACA661 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154399E2261F56D100ACA661 /* Observable.swift */; };
+		154399E6261FFBAA00ACA661 /* CustomQuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154399E5261FFBAA00ACA661 /* CustomQuestionsViewController.swift */; };
+		154399EA2620870200ACA661 /* CustomQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154399E92620870200ACA661 /* CustomQuestionTableViewCell.swift */; };
+		154399EE26208A2400ACA661 /* QuestionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154399ED26208A2300ACA661 /* QuestionsBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		151554FD261CDBBA00197C57 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		154399DD261E32AC00ACA661 /* QuestionSequenceStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSequenceStrategy.swift; sourceTree = "<group>"; };
 		154399E2261F56D100ACA661 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		154399E5261FFBAA00ACA661 /* CustomQuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQuestionsViewController.swift; sourceTree = "<group>"; };
+		154399E92620870200ACA661 /* CustomQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		154399ED26208A2300ACA661 /* QuestionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		151554C52619A20A00197C57 /* Snatch a Million */ = {
 			isa = PBXGroup;
 			children = (
+				154399E8262086B500ACA661 /* Views */,
 				154399E1261F56AF00ACA661 /* Utils */,
 				151554DF2619AA0300197C57 /* Controllers */,
 				151554DE2619A9E800197C57 /* Game */,
@@ -112,6 +119,7 @@
 				151554EC2619B6D800197C57 /* MainMenuViewController.swift */,
 				151554F22619CC0100197C57 /* ResultsViewController.swift */,
 				151554FD261CDBBA00197C57 /* SettingsViewController.swift */,
+				154399E5261FFBAA00ACA661 /* CustomQuestionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,8 +136,17 @@
 			isa = PBXGroup;
 			children = (
 				154399E2261F56D100ACA661 /* Observable.swift */,
+				154399ED26208A2300ACA661 /* QuestionsBuilder.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		154399E8262086B500ACA661 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				154399E92620870200ACA661 /* CustomQuestionTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,14 +222,17 @@
 				151554F32619CC0100197C57 /* ResultsViewController.swift in Sources */,
 				151554ED2619B6D800197C57 /* MainMenuViewController.swift in Sources */,
 				151554E12619AA2900197C57 /* GameViewController.swift in Sources */,
+				154399E6261FFBAA00ACA661 /* CustomQuestionsViewController.swift in Sources */,
 				151554CB2619A20A00197C57 /* ViewController.swift in Sources */,
 				151554D12619A20A00197C57 /* Snatch_a_Million.xcdatamodeld in Sources */,
+				154399EA2620870200ACA661 /* CustomQuestionTableViewCell.swift in Sources */,
 				151554F02619C78E00197C57 /* ResultsCareTaker.swift in Sources */,
 				151554E42619AA3D00197C57 /* Question.swift in Sources */,
 				151554E72619AA5500197C57 /* GameSession.swift in Sources */,
 				151554C72619A20A00197C57 /* AppDelegate.swift in Sources */,
 				151554C92619A20A00197C57 /* SceneDelegate.swift in Sources */,
 				154399E3261F56D100ACA661 /* Observable.swift in Sources */,
+				154399EE26208A2400ACA661 /* QuestionsBuilder.swift in Sources */,
 				151554EA2619AA5F00197C57 /* Game.swift in Sources */,
 				154399DE261E32AC00ACA661 /* QuestionSequenceStrategy.swift in Sources */,
 				151554FE261CDBBA00197C57 /* SettingsViewController.swift in Sources */,

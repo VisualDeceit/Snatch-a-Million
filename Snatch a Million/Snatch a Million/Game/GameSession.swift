@@ -27,20 +27,22 @@ class GameSession {
              correctAnswer: 2),
  ]
     
-    var questionSequenceStrategy: QuestionSequenceStrategy
-    
     private var currentQuestionIndex: Int = 0
     
+    var questionSequenceStrategy: QuestionSequenceStrategy
+
     var question: Question {
         return allQuestions[currentQuestionIndex]
     }
     
+    //если объявлять через вычисляемое св-во
+    //var progress: Double { return Double(correctAnswers) / Double(allQuestions.count) * 100.0 }
+    //то падает с ошибкой
+    //'Simultaneous accesses to <address> , but modification requires exclusive access'
     var progress: Double = 0
     
     @Observable private(set) var correctAnswers = 0 {
         willSet {
-            //если делать через вычисляемое св-во, то падает с ошибкой:
-            //'Simultaneous accesses to <address> , but modification requires exclusive access'
             progress = Double(newValue) / Double(allQuestions.count) * 100.0
         }
     }
