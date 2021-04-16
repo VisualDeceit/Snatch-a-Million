@@ -69,7 +69,7 @@ extension CustomQuestionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as? CustomQuestionTableViewCell
         else { return CustomQuestionTableViewCell()}
-        cell.populate(question: self.customQuestions[indexPath.row], builder: questionsBuilder)
+        cell.configure(question: self.customQuestions[indexPath.row], builder: questionsBuilder)
         return cell
     }
 }
