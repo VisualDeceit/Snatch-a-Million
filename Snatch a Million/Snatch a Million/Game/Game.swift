@@ -22,8 +22,8 @@ class Game {
     private(set) var results: [Result] = []
     private(set) var customQuestions: [Question] = []
     
-    let resultsCareTaker = OriginalCareTaker(key: UserDefaultsKeys.results)
-    let questionsCareTaker = OriginalCareTaker(key: UserDefaultsKeys.questions)
+    let resultsCareTaker = OriginalCareTaker<Result>(key: UserDefaultsKeys.results)
+    let questionsCareTaker = OriginalCareTaker<Question>(key: UserDefaultsKeys.questions)
     
     func addResult(_ result: Result) {
         self.results.append(result)

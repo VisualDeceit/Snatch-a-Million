@@ -12,15 +12,14 @@ enum UserDefaultsKeys {
     static let questions = "questions"
 }
 
-
-class OriginalCareTaker {
+class OriginalCareTaker<T:Codable> {
     let key: String
     
     init(key: String) {
         self.key = key
     }
     
-    func save<T: Codable>(_ object: [T]) {
+    func save(_ object: [T]) {
         do {
             let memento = try JSONEncoder().encode(object)
             UserDefaults.standard.set(memento, forKey: key)
@@ -29,8 +28,8 @@ class OriginalCareTaker {
         }
     }
     
-    func load<T: Codable>() -> [T] {
-        guard let memento = UserDefaults.standard.value(forKey:key) as? Data  else { return [] }
+    func load() -> [T] {
+        guard let memento = UserDefaults.standard.value(forKey:key) as? Data else { return [] }
         return (try? JSONDecoder().decode([T].self, from: memento)) ?? []
     }
 }
