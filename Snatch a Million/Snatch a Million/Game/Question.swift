@@ -12,3 +12,7 @@ struct Question: Codable {
     var answers: [String]
     var correctAnswer: Int
 }
+
+extension Question {
+    static let empty = Question(text: "", answers: ["","","",""], correctAnswer: 0)
+}

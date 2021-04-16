@@ -19,22 +19,18 @@ class QuestionsBuilder {
               !question.answers[1].isEmpty,
               !question.answers[2].isEmpty,
               !question.answers[3].isEmpty else {
-            currentQuestion = reset()
+            currentQuestion = .empty
             return
         }
         self.questions.append(question)
-        currentQuestion = reset()
+        currentQuestion = .empty
     }
     
-    func reset() ->  Question {
-        return Question(text: "", answers: ["","","",""], correctAnswer: 0)
-    }
-    
-    func getQuestions() -> [Question] {
+    func build() -> [Question] {
         return questions
     }
     
-    func setText(_ text: String) {
+    func setQuestion(_ text: String) {
         self.currentQuestion?.text = text
     }
     

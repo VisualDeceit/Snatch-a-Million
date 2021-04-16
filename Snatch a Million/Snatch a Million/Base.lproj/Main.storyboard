@@ -105,11 +105,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mQi-xf-fbj">
                                 <rect key="frame" x="10" y="384" width="355" height="84"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oeb-k8-joZ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oeb-k8-joZ">
                                         <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iB5-Ok-z63">
-                                                <rect key="frame" x="0.0" y="0.0" width="169" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
                                                 <state key="normal" title="Вариант 1">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -118,7 +118,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSr-SU-z3c">
-                                                <rect key="frame" x="174" y="0.0" width="181" height="30"/>
+                                                <rect key="frame" x="180" y="0.0" width="175" height="30"/>
                                                 <state key="normal" title="Вариант 2">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -357,6 +357,9 @@
                             <constraint firstItem="Pqb-AK-zEB" firstAttribute="top" secondItem="Zjb-kg-0cP" secondAttribute="bottom" constant="16" id="tAZ-6j-4TJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="questionSequenceSegmentedControl" destination="dwb-eP-lPB" id="KIW-Ol-hcx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eT7-CH-RUG" sceneMemberID="firstResponder"/>
                 <exit id="EAg-TH-yWF" userLabel="Exit" sceneMemberID="exit"/>
@@ -409,13 +412,16 @@
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mkA-0k-Xn9">
                                                     <rect key="frame" x="8" y="8" width="359" height="80"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="hgX-Ds-eeu"/>
                                                     </constraints>
                                                     <color key="textColor" systemColor="labelColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vPJ-lh-Ntm" id="8lR-J0-3Eq"/>
+                                                    </connections>
                                                 </textView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JUT-3R-wNC">
                                                     <rect key="frame" x="8" y="96" width="359" height="160.5"/>
@@ -425,8 +431,12 @@
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o8b-Jz-Tzx">
                                                                     <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
+                                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="vPJ-lh-Ntm" id="DOk-Ho-gCr"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qwc-2Y-PTV">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
@@ -441,8 +451,12 @@
                                                             <subviews>
                                                                 <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t2c-LQ-4gY">
                                                                     <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
+                                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="vPJ-lh-Ntm" id="dXM-yD-zi6"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Nb9-XT-E7B">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
@@ -457,8 +471,12 @@
                                                             <subviews>
                                                                 <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="htV-MA-DpI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
+                                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="vPJ-lh-Ntm" id="55c-9g-mNn"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Zcg-oR-6WI">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
@@ -473,8 +491,12 @@
                                                             <subviews>
                                                                 <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Вариант 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bDW-GE-kre">
                                                                     <rect key="frame" x="0.0" y="0.0" width="294" height="34"/>
+                                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
+                                                                    <connections>
+                                                                        <outlet property="delegate" destination="vPJ-lh-Ntm" id="uON-7m-6sR"/>
+                                                                    </connections>
                                                                 </textField>
                                                                 <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-JG-ESR">
                                                                     <rect key="frame" x="310" y="1.5" width="51" height="31"/>
@@ -499,15 +521,15 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="answer1IsCorrectSwitch" destination="Qwc-2Y-PTV" id="srU-z5-6eg"/>
-                                            <outlet property="answer1TextField" destination="o8b-Jz-Tzx" id="EPd-ud-gWa"/>
-                                            <outlet property="answer2IsCorrectSwitch" destination="Nb9-XT-E7B" id="b1s-W4-6uY"/>
-                                            <outlet property="answer2TextField" destination="t2c-LQ-4gY" id="Gnb-Fb-VKR"/>
-                                            <outlet property="answer3IsCorrectSwitch" destination="Zcg-oR-6WI" id="F4s-rv-4OC"/>
-                                            <outlet property="answer3TextField" destination="htV-MA-DpI" id="Sbf-ke-AWx"/>
-                                            <outlet property="answer4IsCorrectSwitch" destination="E6c-JG-ESR" id="xyP-G1-9gi"/>
-                                            <outlet property="answer4TextField" destination="bDW-GE-kre" id="16g-Ej-AJW"/>
                                             <outlet property="questionTextView" destination="mkA-0k-Xn9" id="sbX-nj-6kb"/>
+                                            <outletCollection property="answerCorrectSwitches" destination="Qwc-2Y-PTV" collectionClass="NSMutableArray" id="ahx-cX-f9l"/>
+                                            <outletCollection property="answerTextFeilds" destination="o8b-Jz-Tzx" collectionClass="NSMutableArray" id="jUi-WZ-EV3"/>
+                                            <outletCollection property="answerCorrectSwitches" destination="Nb9-XT-E7B" collectionClass="NSMutableArray" id="fl6-r6-Ul1"/>
+                                            <outletCollection property="answerCorrectSwitches" destination="Zcg-oR-6WI" collectionClass="NSMutableArray" id="SzD-cQ-onQ"/>
+                                            <outletCollection property="answerCorrectSwitches" destination="E6c-JG-ESR" collectionClass="NSMutableArray" id="rKn-ip-6PP"/>
+                                            <outletCollection property="answerTextFeilds" destination="t2c-LQ-4gY" collectionClass="NSMutableArray" id="jxW-dk-2Za"/>
+                                            <outletCollection property="answerTextFeilds" destination="htV-MA-DpI" collectionClass="NSMutableArray" id="Ze2-aG-aGO"/>
+                                            <outletCollection property="answerTextFeilds" destination="bDW-GE-kre" collectionClass="NSMutableArray" id="FeL-CN-wow"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

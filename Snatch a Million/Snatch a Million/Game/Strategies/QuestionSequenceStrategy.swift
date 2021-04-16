@@ -8,28 +8,17 @@
 import Foundation
 
 protocol QuestionSequenceStrategy {
-   mutating func getQuestionIndex() -> Int
+    func apply(collection: [Question]) -> [Question]
 }
 
 struct SerialQuestionSequenceStrategy: QuestionSequenceStrategy {
-    var questionIndex = 0
-    
-    mutating func getQuestionIndex() -> Int {
-        questionIndex += 1
-        return questionIndex
+    func apply(collection: [Question]) -> [Question] {
+        collection
     }
 }
 
 struct RandomQuestionSequenceStrategy: QuestionSequenceStrategy {
-    var questionsIndexes: [Int]
-    
-    init(questionsCount: Int) {
-        self.questionsIndexes = Array(0..<questionsCount).shuffled()
-    }
-    
-    mutating func getQuestionIndex() -> Int {
-        let questionIndex = questionsIndexes.first ?? 0
-        questionsIndexes.removeFirst()
-        return questionIndex
+    func apply(collection: [Question]) -> [Question] {
+        collection.shuffled()
     }
 }
