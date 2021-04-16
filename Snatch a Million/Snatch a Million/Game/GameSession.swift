@@ -54,9 +54,10 @@ class GameSession {
         case .serial:
             questionSequenceStrategy =  SerialQuestionSequenceStrategy()
         case .random:
-            questionSequenceStrategy =  RandomQuestionSequenceStrategy(questionsCount: allQuestions.count)
-            currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
+            questionSequenceStrategy =  RandomQuestionSequenceStrategy()
         }
+        
+        allQuestions = questionSequenceStrategy.apply(collection: allQuestions)
     }
 }
 
@@ -71,15 +72,14 @@ extension GameSession: GameViewControllerDelegate {
         } else {
             //проиграли
             endGame(controller)
-            return
         }
         
-        if correctAnswers == allQuestions.count {
-            //конец  игры
+        if currentQuestionIndex < allQuestions.count - 1 {
+            currentQuestionIndex += 1
+        } else {
+            //конец игры
             endGame(controller)
-            return
         }
-        currentQuestionIndex = questionSequenceStrategy.getQuestionIndex()
     }
     
     func endGame(_ controller: GameViewController) {

@@ -357,6 +357,9 @@
                             <constraint firstItem="Pqb-AK-zEB" firstAttribute="top" secondItem="Zjb-kg-0cP" secondAttribute="bottom" constant="16" id="tAZ-6j-4TJ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="questionSequenceSegmentedControl" destination="dwb-eP-lPB" id="KIW-Ol-hcx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eT7-CH-RUG" sceneMemberID="firstResponder"/>
                 <exit id="EAg-TH-yWF" userLabel="Exit" sceneMemberID="exit"/>

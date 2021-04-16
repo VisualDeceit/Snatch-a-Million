@@ -12,7 +12,15 @@ enum QuestionSequenceMode: Int {
 }
 
 class SettingsViewController: UIViewController {
+    @IBOutlet weak var questionSequenceSegmentedControl: UISegmentedControl!
+    
     @IBAction func onQuestionsSequenceModeChanged(_ sender: UISegmentedControl) {
         Game.shared.questionSequenceMode = QuestionSequenceMode(rawValue: sender.selectedSegmentIndex) ?? .serial
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        questionSequenceSegmentedControl.selectedSegmentIndex =  Game.shared.questionSequenceMode.rawValue
     }
 }
