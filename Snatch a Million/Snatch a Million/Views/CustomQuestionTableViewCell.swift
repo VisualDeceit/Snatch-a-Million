@@ -40,7 +40,7 @@ class CustomQuestionTableViewCell: UITableViewCell {
 
 extension CustomQuestionTableViewCell: UITextViewDelegate, UITextFieldDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
-        questionsBuilder.setText(textView.text)
+        questionsBuilder.setQuestion(textView.text)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

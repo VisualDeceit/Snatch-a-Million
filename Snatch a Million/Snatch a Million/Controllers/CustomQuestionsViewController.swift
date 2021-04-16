@@ -17,7 +17,7 @@ class CustomQuestionsViewController: UIViewController {
     
     @IBAction func onAddNewQuestionPreessed(_ sender: UIButton) {
         questionsBuilder.addQuestion()
-        customQuestions = questionsBuilder.getQuestions() + [questionsBuilder.reset()]
+        customQuestions = questionsBuilder.build() + [.empty]
         
         tableView.reloadData()
         tableView.scrollToRow(at: IndexPath(row: customQuestions.count - 1, section: 0), at: .bottom, animated: true)
@@ -28,7 +28,7 @@ class CustomQuestionsViewController: UIViewController {
     }
     
     @IBAction func onAddAllQuestionsPressed(_ sender: UIButton) {
-        Game.shared.addQuestions(questionsBuilder.getQuestions())
+        Game.shared.addQuestions(questionsBuilder.build())
         dismiss(animated: true)
     }
     
@@ -38,7 +38,7 @@ class CustomQuestionsViewController: UIViewController {
         
         tableView.dataSource = self
         
-        customQuestions = [questionsBuilder.reset()]
+        customQuestions = [.empty]
         questionsBuilder.addQuestion()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
