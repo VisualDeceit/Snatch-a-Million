@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct Question {
-    let text: String
-    let answers: [String]
-    let correctAnswer: Int
+struct Question: Codable {
+    var text: String
+    var answers: [String]
+    var correctAnswer: Int
+}
+
+extension Question {
+    static let empty = Question(text: "", answers: ["","","",""], correctAnswer: 0)
 }

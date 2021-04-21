@@ -20,6 +20,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var answer2Button: UIButton!
     @IBOutlet weak var answer3Button: UIButton!
     @IBOutlet weak var questionLebel: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
     
     @IBAction func onAnswerButtonPressed(_ sender: UIButton) {
         delegate?.didSelectAnswer(self, sender)
@@ -28,7 +29,6 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         beginGame()
     }
     
@@ -37,7 +37,12 @@ class GameViewController: UIViewController {
         let gameSession = GameSession()
         self.delegate = gameSession
         Game.shared.gameSession = gameSession
+        
         showNextQuestion(Game.shared.gameSession?.question)
+        
+        gameSession.$correctAnswers.addObserver(self) { [weak self] (value, _) in
+            self?.progressLabel.text = "Вопрос №\(value + 1) Решено: \(String(format: "%.0f%%", gameSession.progress))"
+        }
     }
     
     func showNextQuestion( _ question: Question?) {
